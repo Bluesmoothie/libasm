@@ -12,7 +12,8 @@ loop:
 	je return
 	cmp byte [rsi], 0
 	je return
-	cmp byte [rdi], [rsi]
+	mov byte rbx, [rdi]
+	cmp byte rbx, [rsi]
 	jne result
 	inc rdi
 	inc rsi
