@@ -1,0 +1,36 @@
+mov rax, rbx		//copy rbx to rax
+mov rax, 42			//copy 42 to rax
+mov rax, [rbx + 8]	//copy what's in rbx+8 address to rax
+
+.text: code
+.data: init data
+.bss: no init data
+
+global export a symbol
+extern import a symbol
+equ constant
+
+;commentary
+
+ex:
+
+; File : hello.s
+section .data
+    message db 'Hello, World!', 0xA  ; String with newline
+    message_len equ $ - message      ; String size
+
+section .text
+    global _start
+
+_start:
+    ; syscall write (1)
+    mov rax, 1          ; Syscall number : write
+    mov rdi, 1          ; File descriptor : stdout
+    mov rsi, message    ; String address
+    mov rdx, message_len ; String size
+    syscall             ; Perform syscall
+
+    ; syscall exit (60)
+    mov rax, 60         ; Syscall number : exit
+    mov rdi, 0          ; Return value : 0
+    syscall

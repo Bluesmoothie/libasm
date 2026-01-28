@@ -2,6 +2,6 @@ section .text
 	global ft_read
 
 ft_read:
-	mov rax, 0
+	mov rax, 0	;Syscall 0 = read
 	syscall
 	ret
