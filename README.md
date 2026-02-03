@@ -68,9 +68,11 @@ and or xor  ;Logical operations
 
 Flags are set when doing certain instructions
 
-ZF zero flag (1 if result is 0)  
-SF ifgn flag (1 if result < 0)  
-CF carry flag (1 if overflow in add ou sub)  
-OF overflow flag  
-PF parity flag (1 if pair)  
-AF auxiliary flag  
+| Code | Name           | Condition                        |
+|------|----------------|----------------------------------|
+| ZF   | Zero Flag      | Result == 0                      |
+| SF   | Sign Flag      | Result negative                  |
+| CF   | Carry Flag     | Unsigned overflow                |
+| OF   | Overflow Flag  | Signed overflow                  |
+| PF   | Parity Flag    | Even number of set bits (LSB)    |
+| AF   | Auxiliary Flag | Carry between bits 3 and 4 (BCD) |
